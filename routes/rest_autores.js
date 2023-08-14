@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const Libro = require('../models').libro;
+const Autor = require('../models').autor;
 
 router.get('/', function (req, res, next) {
   res.send('respond with a resource');
@@ -11,7 +11,7 @@ router.get('/', function (req, res, next) {
 router.get('/findAll/json', function(req, res, next) {
 
   /* METODO ESTATICO findAll */
-  Libro.findAll({
+  Autor.findAll({
     attributes: { exclude: ["updatedAt", "createdAt"] },
   })
   .then(resultado => {
@@ -25,7 +25,7 @@ router.get('/findById/:id/json', function(req, res, next) {
 
   let id = req.params.id;
 
-  Libro.findByPk(id)
+  Autor.findByPk(id)
       .then(instancia => {
         if(instancia) {
           res.status(200).json(instancia);
@@ -39,7 +39,7 @@ router.get('/findById/:id/json', function(req, res, next) {
 /* SOLICITUD POST PARA CREAR REGISTRO EN TABLA */ 
 router.post('/save', function(req, res, next) {  
 
-  Libro.create(req.body)
+  Autor.create(req.body)
     .then(instancia => {
       res.status(201).json(instancia);
     })
@@ -54,7 +54,7 @@ router.put('/update/:id', function(req, res, next) {
 
   let id = req.params.id;
 
-  Libro.findByPk(id)
+  Autor.findByPk(id)
     .then(instancia => {
       if(instancia) {
 
@@ -79,7 +79,7 @@ router.delete('/delete/:id', function(req, res, next) {
 
   let id = req.params.id;
 
-  Libro.findByPk(id)
+  Autor.findByPk(id)
     .then(instancia => {
       if(instancia) {
 

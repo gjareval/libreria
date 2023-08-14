@@ -9,6 +9,10 @@ var usersRouter = require('./routes/users');
 
 /* REFERENCIA AL MANEJADOR DE RUTAS DE LOS MODELOS */
 var LibroRouter = require('./routes/rest_libros');
+var ClienteRouter = require('./routes/rest_clientes');
+var AutorRouter = require('./routes/rest_autores');
+var GeneroRouter = require('./routes/rest_generos');
+var PrestamoRouter = require('./routes/rest_prestamos');
 
 var app = express();
 
@@ -26,6 +30,10 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 app.use('/rest/libros', LibroRouter);
+app.use('/rest/autores', AutorRouter);
+app.use('/rest/clientes', ClienteRouter);
+app.use('/rest/generos', GeneroRouter);
+app.use('/rest/prestamos', PrestamoRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
