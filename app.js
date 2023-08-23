@@ -7,6 +7,12 @@ var logger = require('morgan');
 /* MÓDULO CORS */
 var cors = require('cors')
 
+/* MÓDULO dotenv */
+const dotenv = require('dotenv');
+
+/* CARGA DE DATOS DE CONFIGURACION EN MEMORIA */
+dotenv.config();
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
@@ -17,7 +23,13 @@ var AutorRouter = require('./routes/rest_autores');
 var GeneroRouter = require('./routes/rest_generos');
 var PrestamoRouter = require('./routes/rest_prestamos');
 
+/* CARGA DEL MIDDLEWARE authenticateJWT */
+var authenticateJWT = require('./middleware/auth');
+
 var app = express();
+
+/* USE LA FUNCIÓN authenticateJWT */
+app.use('/rest/libros', authenticateJWT, LibroRouter);
 
 /* AGREGUE EL MIDDLEWARE CORS */
 app.use(cors());

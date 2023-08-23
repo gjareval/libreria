@@ -10,6 +10,14 @@ router.get('/', function (req, res, next) {
 /* SOLICITUD GET PARA TODOS LOS REGISTROS */
 router.get('/findAll/json', function(req, res, next) {
 
+  /* VERIFICADOR DE AUTORIZACIÓN */
+
+  const { rol } = req.user;
+
+  if (rol !== 'admin') {
+      return res.sendStatus(403);
+  }
+
   /* METODO ESTATICO findAll */
   Libro.findAll({
     attributes: { exclude: ["updatedAt", "createdAt"] },
