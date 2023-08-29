@@ -26,10 +26,28 @@ var PrestamoRouter = require('./routes/rest_prestamos');
 /* CARGA DEL MIDDLEWARE authenticateJWT */
 var authenticateJWT = require('./middleware/auth');
 
+/* REFERENCIA AL MÓDULO */
+const swaggerUi = require('swagger-ui-express');
+
+/* REFERENCIA AL ARCHIVO GENERADO */
+const swaggerFile = require('./swagger_output.json');
+
 var app = express();
 
+app.use(cors({
+  origin: 'http://localhost:4200', // Cambia esto al origen correcto
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Agrega los métodos que necesites
+  credentials: true // Si estás utilizando cookies o autenticación con credenciales
+}));
+
+/* CONFIGURACIÓN DE LA RUTA A LA DOCUMENTACIÓN */
+app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile));
+
 /* USE LA FUNCIÓN authenticateJWT */
+//descomentar para seguridad
 app.use('/rest/libros', authenticateJWT, LibroRouter);
+
+
 
 /* AGREGUE EL MIDDLEWARE CORS */
 app.use(cors());

@@ -12,6 +12,7 @@ router.get('/findAll/json', function(req, res, next) {
 
   /* VERIFICADOR DE AUTORIZACIÓN */
 
+  //descomentar para seguridad
   const { rol } = req.user;
 
   if (rol !== 'admin') {
