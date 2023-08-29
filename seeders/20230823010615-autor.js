@@ -6,9 +6,37 @@ module.exports = {
     await queryInterface.bulkInsert('autor', [
       {
         id_autor: 1,
-        nombre: "Oscar",
-        apellido: "Wilde",
-        nacionalidad: "Irlandés",
+        nombre: "Jane",
+        apellido: "Austen",
+        nacionalidad: "Británica",
+      },
+
+      {
+        id_autor: 2,
+        nombre: "Dan",
+        apellido: "Brown",
+        nacionalidad: "Estadounidense",
+      },
+
+      {
+        id_autor: 3,
+        nombre: "Helen",
+        apellido: "Fielding",
+        nacionalidad: "Británica",
+      },
+
+      {
+        id_autor: 4,
+        nombre: "Stephen",
+        apellido: "King",
+        nacionalidad: "Estadounidense",
+      },
+
+      {
+        id_autor: 5,
+        nombre: "Cassandra",
+        apellido: "Clare",
+        nacionalidad: "Estadounidense",
       },
     ], {});
   },

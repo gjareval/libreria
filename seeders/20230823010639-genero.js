@@ -6,8 +6,32 @@ module.exports = {
     await queryInterface.bulkInsert('genero', [
       {
         id_genero: 1,
-        nombre: "Ficción",
-        descripcion: "Simula, inventa o crea una realidad",
+        nombre: "Romance",
+        descripcion: "Género romance",
+      },
+
+      {
+        id_genero: 2,
+        nombre: "Suspenso",
+        descripcion: "Género suspenso",
+      },
+
+      {
+        id_genero: 3,
+        nombre: "Comedia",
+        descripcion: "Género comedia",
+      },
+
+      {
+        id_genero: 4,
+        nombre: "Misterio",
+        descripcion: "Género misterio",
+      },
+
+      {
+        id_genero: 5,
+        nombre: "Fantasía",
+        descripcion: "Género fantasía",
       },
     ], {});
   },
