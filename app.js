@@ -35,7 +35,7 @@ const swaggerFile = require('./swagger_output.json');
 var app = express();
 
 app.use(cors({
-  origin: 'http://localhost:4200', // Cambia esto al origen correcto
+  origin: 'https://majomoyano.github.io', // Cambia esto al origen correcto
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Agrega los métodos que necesites
   credentials: true // Si estás utilizando cookies o autenticación con credenciales
 }));
